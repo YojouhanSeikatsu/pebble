@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="profile.css">
+        <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-check-compat.js"></script>
+        <script src="../config.js"></script>
+        <script src="../universal.js"></script>
+        <script src="profile.js"></script>
+        <title>
+            Settings
+        </title>
+    </head>
+    <body>
+        <div id="display">
+            Profile - <i><span id="username"></span></i>
+        </div>
+        <div id="change-container">
+            <div class="input-elements" id="username-container">
+                <div class="text" id="username-name">New Username</div>
+                <input class="change-input" id="username-input" type="text">
+            </div>
+            <div class="input-elements" id="new-container">
+                <div class="text" id="new-password">New Password</div>
+                <input class="change-input" id="new-input" type="password">
+            </div>
+            <div class="input-elements" id="copy-container">
+                <div class="text" id="copy-password">Confirm New Password</div>
+                <input class="change-input" id="copy-input" type="password">
+            <div class="input-elements" id="old-container">
+                <div class="text" id="old-password">Enter Old Password</div>
+                <input class="change-input" id="old-input" type="password">
+            </div>
+
+            <button id="submit" onclick="submit()">Submit</button>
+            <button id="back" onclick="window.location.replace('../pebble/pebbletwo.html?ignore=true');">Back</button>
+        </div>
+    </body>
+</html>

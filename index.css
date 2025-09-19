@@ -1,0 +1,33 @@
+* {
+    background-color: black;
+    background-image: url("images/myBackground.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#pebble-img {
+    border: 4px;
+    border-color: white;
+    max-width: 10%;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+}
+
+#king-img {
+    border: 4px;
+    border-color: white;
+    max-width: 10%;
+    position: absolute;
+    top: 30.5%;
+    left: 75.2%;
+}

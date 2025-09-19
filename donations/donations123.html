@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <title>Donations</title>
+
+        <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-check-compat.js"></script>
+
+        <script src="../config.js"></script>
+
+        <link rel="stylesheet" href="../universal.css">
+        <script src="../universal.js"></script>
+
+        <link rel="stylesheet" href="donations.css">
+        <script src="donations.js"></script>
+
+        <link rel="shortcut icon" href="../images/money.png" type="image/">
+    </head>
+
+    <body>
+        <div class="sidebar" id="sidebar">
+            <button type="button" class="sidebar-button" title="" onclick="window.location.replace('../index.html');">
+                <img src="../images/logo.png" class="sidebar-logo"/>
+            </button>
+            <hr class="sidebar-line">
+            <button type="button" class="sidebar-button" title="" onclick="window.location.replace('../pebble/pebbletwo.html?ignore=true');">
+                <img src="../images/pebblePic.png" class="sidebar-logo"/>
+            </button>
+            <button type="button" class="sidebar-button" id="irisu" title="" onclick="play()">
+                <img src="../images/mute.png" class="sidebar-logo" id="speaker"/>
+                <audio id="bg-music" src="../images/secret_files/irisu_01.mp3"></audio>
+            </button>
+            <button type="button" class="sidebar-button" onclick="clearNotifs()" id="clear">
+                <p style="font-size:12px">Clear Notifs</p>
+            </button>
+        </div>
+
+        <div class="main-container">
+            <div class="title"><img src="../images/money.png"/> PvP Donations</div>
+            <div class="money">MONEY: <span id="money">0</span><img src="../images/money.png"/></div>
+            <div class="notification-text">Notifications!</div>
+            <div id="notifications">
+            </div>
+
+
+            <div class="buy-text upgrade-text">Upgrades</div>
+            <div class="buy-stuff upgrade-buy">
+                <div class="buy-item upgrade" id="autobuy">
+                    <div class="buy-main">
+                        <span id="autoclicker">Buy 1 AC</span> - $<span id="autoCost"></span>
+                    </div>
+                    <div class="buy-description" id="autoDescription">
+                    </div>
+                </div>
+                <div class="buy-item upgrade" id="multbuy">
+                    <div class="buy-main">
+                        <span id="mult">Buy 1 Mult</span> - $<span id="multCost"></span>
+                    </div>
+                    <div class="buy-description" id="multDescription">
+                    </div>
+                </div>
+                <div class="buy-item upgrade" onclick="Gambling()">
+                    <div class="buy-main">
+                        <span id="gambling-text">Unlock Probability Simulator - $100,000</span>
+                    </div>
+                    <div class="buy-description">
+                        "Let's go gambowling!"
+                    </div>
+                </div>
+                <div class="buy-item upgrade" onclick="Roles()" id="roles">
+                    <div class="buy-main">
+                        <span id="roles-text">Unlock Roles - $2,500,000</span>
+                    </div>
+                    <div class="buy-description">
+                        "Society..."
+                    </div>
+                </div>
+            </div>
+
+            <div class="buy-text attack-text">Attacks</div>
+            <div class="buy-stuff attack-buy" id="attacking">
+                <div class="buy-item attack" id="autominus">
+                    <div class="buy-main">
+                        <span id="buyName">Destroy 1 AC</span> - $<span id="autominusCost">0</span>
+                    </div>
+                    <div class="buy-description">
+                        Target: 
+                        <select id="autoselect">
+                        </select>
+                    </div>
+                </div>
+                <div class="buy-item attack" id="multminus">
+                    <div class="buy-main">
+                        <span id="buyName">Destroy 1 Mult</span> - $<span id="multminusCost">0</span>
+                    </div>
+                    <div class="buy-description">
+                        Target: 
+                        <select id="multselect">
+                        </select>
+                    </div>
+                </div>
+                <div class="buy-item attack" id="moneyminus">
+                    <div class="buy-main">
+                        <span id="buyName">Destroy Money</span> - $<span id="moneyminusCost">0</span>
+                    </div>
+                    <div class="buy-description">
+                        Target: 
+                        <select id="moneyselect">
+                        </select><br>
+                        Amount: 
+                        <input type="text" id="moneyminusAmount">
+                    </div>
+                </div>
+            </div>
+
+            <div class="buy-text ability-text">Abilities</div>
+            <div class="buy-stuff ability-buy" id="gifting">
+                <div class="buy-item ability" id="autogift">
+                    <div class="buy-main">
+                        <span id="buyName">Gift 1 AC</span> - $<span id="autogiftCost">0</span>
+                    </div>
+                    <div class="buy-description">
+                        'Tis the Season to be Jolly<br>
+                        <select id="autogiftselect">
+                        </select>
+                    </div>
+                </div>
+                <div class="buy-item ability" id="multgift">
+                    <div class="buy-main">
+                        <span id="buyName">Gift 1 Mult</span> - $<span id="multgiftCost">0</span>
+                    </div>
+                    <div class="buy-description">
+                        'Tis the Season to be Jolly<br>
+                        <select id="multgiftselect">
+                        </select>
+                    </div>
+                </div>
+                <div class="buy-item ability" id="moneygift">
+                    <div class="buy-main">
+                        <span id="buyName">Gift Money</span> - $<span id="moneygiftCost">0</span>
+                    </div>
+                    <div class="buy-description">
+                        'Tis the Season to be Jolly<br>
+                        <select id="moneygiftselect">
+                        </select><br>
+                        Amount: 
+                        <input type="text" id="moneygiftAmount">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="clicky-button-div">
+                <button id="clicky-button" onclick="addAmount()">+1<img src="../images/money.png"/></button>
+            </div>
+            <div class="leaderboard-text">Leaderboard</div>
+            <div id="leaderboard">
+                <div class="leader">
+                </div>
+            </div>
+            <hr class="footer">
+        </div>
+    </body>
+</html>
