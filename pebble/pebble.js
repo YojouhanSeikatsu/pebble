@@ -2534,14 +2534,14 @@ function generateContextualResponse(userMessage, contextMessages) {
 window.onload = function() {
     try {
         const config = {
-            apiKey: "AIzaSyAsp44iKOav3dbHrViABHETRmAnRtQnVwA",
-            authDomain: "chatter-97e8c.firebaseapp.com",
-            databaseURL: "https://chatter-97e8c-default-rtdb.firebaseio.com",
-            projectId: "chatter-97e8c",
-            storageBucket: "chatter-97e8c.firebasestorage.app",
-            messagingSenderId: "281722915171",
-            appId: "1:281722915171:web:3b136d8a0b79389f2f6b56",
-            measurementId: "G-4CGJ1JFX58"
+            apiKey: "AIzaSyDR729rPecV61NEke0Z2iYESFES9I0DB8A",
+            authDomain: "rock-free.firebaseapp.com",
+            databaseURL: "https://rock-free-default-rtdb.firebaseio.com",
+            projectId: "rock-free",
+            storageBucket: "rock-free.firebasestorage.app",
+            messagingSenderId: "112181117305",
+            appId: "1:112181117305:web:1708cc56b4bff667816fa8",
+            measurementId: "G-1MNYP5Y2MC"
         };
 
         firebase.initializeApp(config);
@@ -2554,9 +2554,9 @@ window.onload = function() {
         }
 
         const appCheck = firebase.appCheck();
-        appCheck.activate('6LdCtT0rAAAAAMLtV7TbvgzemnHKbw28Ev8IzXyA', true, { provider: firebase.appCheck.ReCaptchaV3Provider });
+        appCheck.activate('6LcSGM8rAAAAAGtvp85S9U7ldej8RieeRdjj6-Hd', true, { provider: firebase.appCheck.ReCaptchaV3Provider });
 
-        fetch('https://us-central1-pebble-rocks.cloudfunctions.net/api/getInfo', {
+        fetch('https://us-central1-rock-585b5.cloudfunctions.net/api/getInfo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain'

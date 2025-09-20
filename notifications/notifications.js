@@ -30,7 +30,7 @@ function setup() {
 
 window.onload = function() {
     try {
-        fetch('https://us-central1-pebble-rocks.cloudfunctions.net/api/getInfo', {
+        fetch('https://us-central1-rock-585b5.cloudfunctions.net/api/getInfo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain'
